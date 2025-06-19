@@ -1,6 +1,6 @@
 # Sonar Sim
 
-A Python based sonar simulation for developing tools.
+A Python based sonar simulation for tool development.
 
 ## Setup
 
