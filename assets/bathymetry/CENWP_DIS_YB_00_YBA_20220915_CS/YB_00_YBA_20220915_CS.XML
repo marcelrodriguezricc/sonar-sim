@@ -1,0 +1,496 @@
+<metadata>
+    <idinfo>
+        <citation>
+            <citeinfo>
+                <origin>Portland District Corps of Engineers</origin>
+                <pubdate>20220915</pubdate>
+                <title>YB_00_YBA_20220915_CS</title>
+                <geoform>Vector Digital Data Set (Point)</geoform>
+                <serinfo>
+                    <sername>Yaquina River</sername>
+                    <issue>YB_00_YBA_20220915_CS</issue>
+                </serinfo>
+                <pubinfo>
+                    <pubplace>Portland Oregon</pubplace>
+                    <publish>Portland District Corps of Engineers</publish>
+                </pubinfo>
+                <onlink>http://www.nwp.usace.army.mil/Missions/Navigation/Surveys.aspx</onlink>
+            </citeinfo>
+        </citation>
+        <descript>
+            <abstract>SURVEY TYPE: Single Beam Soundings are a first sounding sort at 150 ft. intervals, along longitudinal lines spaced at 1000 ft. perpendicular to the shoreline. Horizontal Coordinate System: DGPS, Differential corrections are based on the NAD83 (2011) position of the reference station (REFSTA) antenna. Positions obtained using DGPS should be referenced to NAD 83 coordinate system only. North American Datum of 1983 (NAD83), projected to the State Plane Coordinate System (SPCS), Oregon North Zone. Distance units in U.S. Survey Feet. Vertical Datum: Soundings are shown in feet and indicate depths below Mean Lower Low Water 1983-2001. MLLW is 0.74 feet below the North American Vertical Datum (NAVD 88) at STAFF GAGE AT NOAA DOCK: Northing: 369948 Easting: 7277771, 0.74 feet at STAFF GAGE AT FUEL DOCK: Northing: 369479 Easting: 7277575, 0.74 feet at STAFF GAGE AT SOUTH BEACH MARINA BOAT RAMP: Northing: 368826 Easting: 7277812, 0.74 feet at STAFF GAGE AT USCG DOCK: Northing: 370304 Easting: 7276640. River mileage conforms to the River Mile Index of the Hydrology and Hydraulics Committee, Pacific Northwest River Basins Commission, June 1968. The information depicted on this map represents the results of a survey conducted on the date indicated and can only be considered to represent the general condition existing at that time.</abstract>
+            <purpose>Channel Depth Status, not intended for Navigation</purpose>
+        </descript>
+        <timeperd>
+            <timeinfo>
+                    <sngdate>
+                         <caldate>20120820</caldate>
+                    </sngdate>DGPS
+               </timeinfo>
+            <current>publication date</current>
+        </timeperd>
+        <status>
+            <progress>Complete</progress>
+            <update>Monthly</update>
+        </status>
+        <spdom>
+            <bounding>
+                <westbc>-124.136094222</westbc>
+                <eastbc>-124.069866183</eastbc>
+                <northbc>44.643278913</northbc>
+                <southbc>44.573294653</southbc>
+            </bounding>
+        </spdom>
+        <keywords>
+            <theme>
+                <themekt>Tri - Service Spatial Data Standard</themekt>
+                <themekey>Condition Survey</themekey>
+                <themekey>Hydro Survey</themekey>
+                <themekey>Hydrographic</themekey>
+                <themekey>Topographic</themekey>
+                <themekey>Orthometric</themekey>
+                <themekey>Bathymetric</themekey>
+                <themekey>Survey</themekey>
+                <themekey>Sounding</themekey>
+                <themekey>Point</themekey>
+            </theme>
+            <place>
+                <placekt>Geographic Names Information System</placekt>
+                <placekey>Oregon</placekey>
+                <placekey>Yaquina River</placekey>
+                <placekey>Yaquina River Approaches</placekey>
+                <placekey>Offshore</placekey>
+            </place>
+        </keywords>
+        <accconst>None. Users are advised to read the data set's metadata thoroughly to understand appropriate use and data limitations.</accconst>
+        <useconst>While there are no explicit constraints on the use of the data, please exercise appropriate and professional judgment in the use and interpretation of these data. Users are advised to read the data set's metadata thoroughly to understand appropriate use and data limitations.</useconst>
+        <ptcontac>
+            <cntinfo>
+                <cntorgp>
+                    <cntorg>CENWP-OD-NH</cntorg>
+                    <cntper>Dan Proudfit</cntper>
+                </cntorgp>
+                <cntpos>Chief, Survey Section</cntpos>
+                <cntaddr>
+                    <addrtype>Mailing and Physical</addrtype>
+                    <address>333 S.W. First Avenue</address>
+                    <city>Portland</city>
+                    <state>Oregon</state>
+                    <postal>97204</postal>
+                    <country>USA</country>
+                </cntaddr>
+                <cntvoice>(503) 808-4349</cntvoice>
+                <cntfax>(503) 808-4365</cntfax>
+                <cntemail>Daniel.R.Proudfit@usace.army.mil</cntemail>
+            </cntinfo>
+        </ptcontac>
+        <datacred>U. S. Army Corps of Engineers, Hydrographic Surveys</datacred>
+        <native>Environment as of Metadata Creation: Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; ESRI ArcCatalog 10.1 (Build 3035) Service Pack [N/A] (Build [N/A])</native>
+    </idinfo>
+    <dataqual>
+        <attracc>
+            <attraccr>These data were compiled for government use and represent the results of data collection/processing for a specific U.S. Army Corps of Engineers (USACE) activity. The USACE makes no representation as to the suitability or accuracy of these data for any other purpose and disclaims any liability for errors that the data may contain. As such, it is only valid for its intended use, content, time, and accuracy specifications. While there are no explicit constraints on the use of the data, please exercise	appropriate and professional judgment in the use and interpretation of these data.</attraccr>
+        </attracc>
+        <logic>Horizontal_Positional_Accuracy_Explanation: Static tests: 
+Vertical_Accuracy_Explanation: Bar check</logic>
+        <complete>Data set is considered complete for the information presented, as described in the abstract. Users are advised to read the rest of the metadata record carefully for additional details.</complete>
+        <posacc>
+            <horizpa>
+                <horizpar>DGPS, 1 Meter, Static Test</horizpar>
+            </horizpa>
+            <vertacc>
+                <vertaccr>Bar Test, 0.5 Foot, Bar Check</vertaccr>
+            </vertacc>
+        </posacc>
+        <lineage>
+            <procstep>
+                <procdesc>This data was collected using an Odom CV100 echosounder, associated equipment include AML Sound velocity profiler and Positioning: Applanix Wavemaster or Applanix POS MV 4. Data is edited using Hypck software to exclude erroneous soundings.</procdesc>
+                <procdate>20140516</procdate>
+            </procstep>
+        </lineage>
+    </dataqual>
+    <spdoinfo>
+        <direct>Point</direct>
+        <ptvctinf>
+            <sdtsterm>
+                <sdtstype>Entity point</sdtstype>
+                <ptvctcnt>2906</ptvctcnt>
+            </sdtsterm>
+        </ptvctinf>
+    </spdoinfo>
+    <spref>
+        <horizsys>
+            <planar>
+                <gridsys>
+                    <gridsysn>State Plane Coordinate System 1983</gridsysn>
+                    <spcs>
+                        <spcszone>3601</spcszone>
+                        <lambertc>
+                            <stdparll>44.3333333333</stdparll>
+                            <stdparll>46.0</stdparll>
+                            <longcm>-120.5</longcm>
+                            <latprjo>43.6666666667</latprjo>
+                            <feast>8202083.33333</feast>
+                            <fnorth>0.0</fnorth>
+                        </lambertc>
+                    </spcs>
+                </gridsys>
+                <planci>
+                    <plance>coordinate pair</plance>
+                    <coordrep>
+                        <absres>0.01</absres>
+                        <ordres>0.01</ordres>
+                    </coordrep>
+                    <plandu>Foot_US</plandu>
+                </planci>
+            </planar>
+            <geodetic>
+                <horizdn>D_North_American_1983</horizdn>
+                <ellips>GRS_1980</ellips>
+                <semiaxis>6378137.0</semiaxis>
+                <denflat>298.257222101</denflat>
+            </geodetic>
+        </horizsys>
+    </spref>
+    <eainfo>
+        <detailed>
+            <enttyp>
+                <enttypl>Attribute Table</enttypl>
+                <enttypd>Table containing attribute information associated with the data set.</enttypd>
+                <enttypds>Producer defined</enttypds>
+            </enttyp>
+            <attr>
+                <attrlabl>xLocation</attrlabl>
+                <attrdef>X value of an xyz survey data set in State Plane Coordinates</attrdef>
+                <attrdefs>Producer defined</attrdefs>
+                <attrdomv>
+                    <rdom>
+                        <rdommin>7254975.86</rdommin>
+                        <rdommax>7273195.6</rdommax>
+                        <attrunit>usSurveyFoot</attrunit>
+                    </rdom>
+                </attrdomv>
+            </attr>
+            <attr>
+                <attrlabl>yLocation</attrlabl>
+                <attrdef>Y value of an xyz survey data set in State Plane Coordinates</attrdef>
+                <attrdefs>Producer defined</attrdefs>
+                <attrdomv>
+                    <rdom>
+                        <rdommin>351186.0</rdommin>
+                        <rdommax>377216.5</rdommax>
+                        <attrunit>usSurveyFoot</attrunit>
+                    </rdom>
+                </attrdomv>
+            </attr>
+            <attr>
+                <attrlabl>surveyPointElev</attrlabl>
+                <attrdef>Z value of an xyz survey data point. The elevation of the survey point.</attrdef>
+                <attrdefs>Producer defined</attrdefs>
+                <attrdomv>
+                    <rdom>
+                        <rdommin>6.65999984741</rdommin>
+                        <rdommax>171.990005493</rdommax>
+                        <attrunit>usSurveyFoot</attrunit>
+                    </rdom>
+                </attrdomv>
+            </attr>
+            <attr>
+                <attrlabl>Z_depth</attrlabl>
+                <attrdef>Depth of sounding point corrected for draft,squat, and chart datum</attrdef>
+                <attrdefs>Producer defined</attrdefs>
+                <attrdomv>
+                    <rdom>
+                        <rdommin>6.65999984741</rdommin>
+                        <rdommax>171.990005493</rdommax>
+                        <attrunit>usSurveyFoot</attrunit>
+                    </rdom>
+                </attrdomv>
+            </attr>
+            <attr>
+                <attrlabl>Z_use</attrlabl>
+                <attrdef>Depth of sounding point used on chart with adjustment for equipment Total Propagated Error (-0.5)</attrdef>
+                <attrdefs>Producer defined</attrdefs>
+                <attrdomv>
+                    <rdom>
+                        <rdommin>6.65999984741</rdommin>
+                        <rdommax>171.990005493</rdommax>
+                        <attrunit>usSurveyFoot</attrunit>
+                    </rdom>
+                </attrdomv>
+            </attr>
+            <attr>
+                <attrlabl>Z_label</attrlabl>
+                <attrdef>Character string of Z_use for use on chart as a label</attrdef>
+                <attrdefs>Producer defined</attrdefs>
+                <attrdomv>
+                    <udom>Depth of Sounding point rounded and truncated to an integer for display on a chart.</udom>
+                </attrdomv>
+            </attr>
+            <attr>
+                <attrlabl>SurveyDateStamp</attrlabl>
+                <attrdef>Date of survey</attrdef>
+                <attrdefs>Producer defined</attrdefs>
+                <attrdomv>
+                    <edom>
+                        <edomv>2022-09-15</edomv>
+                        <edomvd>Date</edomvd>
+                        <edomvds>Producer defined</edomvds>
+                    </edom>
+                </attrdomv>
+            </attr>
+            <attr>
+                <attrlabl>SurveyId</attrlabl>
+                <attrdef>eHydro Survey location including the date of survey</attrdef>
+                <attrdefs>Producer defined</attrdefs>
+                <attrdomv>
+                    <edom>
+                        <edomv>YB_00_YBA_20220915_CS</edomv>
+                        <edomvd>Unique survey ID based on survey location and date of survey</edomvd>
+                        <edomvds>Producer defined</edomvds>
+                    </edom>
+                </attrdomv>
+            </attr>
+            <attr>
+                <attrlabl>surveyPointIDPK</attrlabl>
+                <attrdef>Primary Key.  A unique, user defined identifier for each record or instance of an entity. Number to be added at Enterprise level cross referenced to historical National Channel Framework data</attrdef>
+                <attrdefs>Producer defined</attrdefs>
+                <attrdomv>
+                    <edom>
+                        <edomv>{Null Value / Empty Field Entry}</edomv>
+                        <edomvd>Unique ID number to be added at Enterprise level</edomvd>
+                        <edomvds>Producer defined</edomvds>
+                    </edom>
+                </attrdomv>
+            </attr>
+            <attr>
+                <attrlabl>sdsID</attrlabl>
+                <attrdef>The unique identifier for all features and objects in the SDSFIE added at the Enterprise level Implemented for SDSFIE compliance; reserved for future functionality</attrdef>
+                <attrdefs>Producer defined</attrdefs>
+                <attrdomv>
+                    <udom>The unique identifier for all features and objects in the SDSFIE</udom>
+                </attrdomv>
+            </attr>
+            <attr>
+                <attrlabl>sdsFeatureName</attrlabl>
+                <attrdef>The common name of the feature added at the Enterprise level Implemented for SDSFIE compliance; reserved for future functionality</attrdef>
+                <attrdefs>Producer defined</attrdefs>
+                <attrdomv>
+                    <udom>The common name of the feature</udom>
+                </attrdomv>
+            </attr>
+            <attr>
+                <attrlabl>sdsFeatureDescription</attrlabl>
+                <attrdef>A description of the feature Implemented for SDSFIE compliance; reserved for future functionality</attrdef>
+                <attrdefs>Producer defined</attrdefs>
+                <attrdomv>
+                    <udom>A narrative describing the feature.</udom>
+                </attrdomv>
+            </attr>
+            <attr>
+                <attrlabl>sdsMetadataID</attrlabl>
+                <attrdef>The foreign key to a metadata record Implemented for SDSFIE compliance; reserved for future functionality</attrdef>
+                <attrdefs>Producer defined</attrdefs>
+                <attrdomv>
+                    <udom>The foreign key to a metadata record</udom>
+                </attrdomv>
+            </attr>
+            <attr>
+                <attrlabl>elevationDatum</attrlabl>
+                <attrdef>A code indicating the datum or reference for the elevation.</attrdef>
+                <attrdefs>Producer defined</attrdefs>
+                <attrdomv>
+                    <edom>
+                        <edomv>MLLW</edomv>
+                        <edomvd>ALWP	Average Low Water Plane
+DHQ	Mean Diurnal High Water Inequality - The difference in height of the two high waters of each tidal day for a mixed or semidiurnal tide.
+DLQ	Mean Diurnal Low Water Inequality - The difference in height of the two low waters of each tidal day for a mixed or semidiurnal tide.
+DTL	Diurnal Tide Level - The arithmetic mean of mean higher high water and mean lower low water.
+GT	Great Diurnal Range - The difference in height between mean higher high water and mean lower low water.
+HWI	Greenwich High Water Interval - The average interval (in hours) between the transit of the moon over the Greenwich meridian and the following high water at a location.
+LWI	Greenwich Low Water Interval - The average interval (in hours) between the transit of the moon over the Greenwich meridian and the following low water at a location.
+LWRP	Low Water Reference Plane 1974
+MHHW	Mean Higher High Water - The average of the higher high water height of each tidal day observed over the National Tidal Datum Epoch.
+MHW	Mean High Water - The average of all the high water heights observed over the National Tidal Datum Epoch.
+MLG	Mean Low Gulf
+MLLW	Mean Lower Low Water - The average of the lower low water height of each tidal day observed over the National Tidal Datum Epoch.
+MLW	Mean Low Water - The average of all the low water heights observed over the National Tidal Datum Epoch.
+MN	Mean Range of Tide - The difference in height between mean high water and mean low water.
+MSL	Mean Sea Level - The arithmetic mean of hourly heights observed over the National Tidal Datum Epoch. Shorter series are specified in the name; e.g., monthly mean sea level and yearly mean sea level.
+MTL	Mean Tide Level - The arithmetic mean of mean high water and mean low water.
+NA	Not applicable.
+NAVD_88	North American Vertical Datum of 1988
+NGVD_29	National Geodetic Vertical Datum of 1929
+NTDE	National Tidal Datum Epoch - The specific 19-year period adopted by the National Ocean Service as the official time segment over which tide observations are taken and reduced to obtain mean values (e.g., mean lower low water, etc.) for tidal datums.
+OTHER	Other. Must be described in the sdsFeatureDescription attribute.
+SD	Station Datum - A fixed base elevation at a tide station to which all water level measurements are referred. The datum is unique to each station and is established at a lower elevation than the water is ever expected to reach.
+TBD	To be determined.</edomvd>
+                        <edomvds>Producer defined</edomvds>
+                    </edom>
+                </attrdomv>
+            </attr>
+            <attr>
+                <attrlabl>elevationUOM</attrlabl>
+                <attrdef>The unit of measure for the elevation value(s).</attrdef>
+                <attrdefs>Producer defined</attrdefs>
+                <attrdomv>
+                    <edom>
+                        <edomv>usSurveyFoot</edomv>
+                        <edomvd>fathom	A conventional unit of measurement of length equal to 6 feet (1.8288 metres).
+foot	A conventional unit of measurement of length equal to 0.3048 metres.
+metre	The base unit in SI for the physical quantity length, defined as the length of the path travelled by light in vacuum during a time interval of 1/299,792,458 of a second.
+NA	Not applicable.
+TBD	To be determined.
+usSurveyFoot	A conventional unit of measurement of length equal to 0.3048006 metres. Set by the U.S. Coast and Geodetic Survey as exactly 1200/3937 metres.</edomvd>
+                        <edomvds>Producer defined</edomvds>
+                    </edom>
+                </attrdomv>
+            </attr>
+            <attr>
+                <attrlabl>mediaIDFK</attrlabl>
+                <attrdef>Used to link the record to associated multimedia records that reference data such as imagery, video, audio, scanned documents, drawings, and other digital media.  See your service implementation guidance</attrdef>
+                <attrdefs>Producer defined</attrdefs>
+                <attrdomv>
+                    <udom>Used to link the record to associated multimedia records that reference data such as imagery, video, audio, scanned documents, drawings, and other digital media.</udom>
+                </attrdomv>
+            </attr>
+            <attr>
+                <attrlabl>sourceType</attrlabl>
+                <attrdef>An enumeration of the type of survey source.</attrdef>
+                <attrdefs>Producer defined</attrdefs>
+                <attrdomv>
+                    <edom>
+                        <edomv>sonarSingleBeam</edomv>
+                        <edomvd>lidar	Light detection and ranging.
+NA	Not applicable.
+other	Other. Must be described in the sdsFeatureDescription attribute.
+sarOrIfsar	synthetic aperture radar or interferometric SAR.
+sonarMultiBeam	underwater echo-ranging equipment that emits multiple directional beams.
+sonarSingleBeam	underwater echo-ranging equipment that emits a single directional beam.
+TBD	To be determined.</edomvd>
+                        <edomvds>Producer defined</edomvds>
+                    </edom>
+                </attrdomv>
+            </attr>
+            <attr>
+                <attrlabl>surveyJobIDFK</attrlabl>
+                <attrdef>The foreign key to the related SurveyJob feature.</attrdef>
+                <attrdefs>Producer defined</attrdefs>
+                <attrdomv>
+                    <edom>
+                        <edomv>{Null Value / Empty Field Entry}</edomv>
+                        <edomvd>Unknown</edomvd>
+                        <edomvds>Producer defined</edomvds>
+                    </edom>
+                </attrdomv>
+            </attr>
+            <attr>
+                <attrlabl>xLocationUOM</attrlabl>
+                <attrdef>usSurveyFoot, DISR approved units of measure for length.</attrdef>
+                <attrdefs>Producer defined</attrdefs>
+                <attrdomv>
+                    <edom>
+                        <edomv>usSurveyFoot</edomv>
+                        <edomvd>foot	A conventional unit of measurement of length equal to 0.3048 metres.
+metre	The base unit in SI for the physical quantity length, defined as the length of the path travelled by light in vacuum during a time interval of 1/299,792,458 of a second.
+nauticalMile	A conventional unit of measurement of length equal to 1,852.0 metres.
+statuteMile	A conventional unit of measurement of length equal to 5,280 feet (1,609.344 metres).
+TBD	To be determined.
+usSurveyFoot	A conventional unit of measurement of length equal to 0.3048006 metres. Set by the U.S. Coast and Geodetic Survey as exactly 1200/3937 metres.
+usSurveyMile	A conventional unit of measurement of length equal to 5,280 U.S. Survey Feet (1,609.347 metres).
+yard	A conventional unit of measurement of length equal to 0.9144 metres.</edomvd>
+                        <edomvds>Producer defined</edomvds>
+                    </edom>
+                </attrdomv>
+            </attr>
+            <attr>
+                <attrlabl>yLocationUOM</attrlabl>
+                <attrdef>usSurveyFoot, DISR approved units of measure for length.</attrdef>
+                <attrdefs>Producer defined</attrdefs>
+                <attrdomv>
+                    <edom>
+                        <edomv>usSurveyFoot</edomv>
+                        <edomvd>foot	A conventional unit of measurement of length equal to 0.3048 metres.
+metre	The base unit in SI for the physical quantity length, defined as the length of the path travelled by light in vacuum during a time interval of 1/299,792,458 of a second.
+nauticalMile	A conventional unit of measurement of length equal to 1,852.0 metres.
+statuteMile	A conventional unit of measurement of length equal to 5,280 feet (1,609.344 metres).
+TBD	To be determined.
+usSurveyFoot	A conventional unit of measurement of length equal to 0.3048006 metres. Set by the U.S. Coast and Geodetic Survey as exactly 1200/3937 metres.
+usSurveyMile	A conventional unit of measurement of length equal to 5,280 U.S. Survey Feet (1,609.347 metres).
+yard	A conventional unit of measurement of length equal to 0.9144 metres.</edomvd>
+                        <edomvds>Producer defined</edomvds>
+                    </edom>
+                </attrdomv>
+            </attr>
+        </detailed>
+        <overview>
+            <eaover>The entity and attribute information provided here describes the tabular data associated with the data set. Please review the detailed descriptions that are provided (the individual attribute descriptions) for information on the values that appear as fields/table entries of the data set.</eaover>
+            <eadetcit>The entity and attribute information was generated by the individual and/or agency identified as the originator of the data set. Please review the rest of the metadata record for additional details and information.</eadetcit>
+        </overview>
+    </eainfo>
+    <distinfo>
+        <distrib>
+            <cntinfo>
+                <cntorgp>
+                    <cntorg>CENWP-OD-NH</cntorg>
+                    <cntper>Dan Proudfit</cntper>
+                </cntorgp>
+                <cntpos>Chief, Hydographic Survey</cntpos>
+                <cntaddr>
+                    <addrtype>Mailing and Physical</addrtype>
+                    <address>333 S.W. First Avenue</address>
+                    <city>Portland</city>
+                    <state>Oregon</state>
+                    <postal>97204</postal>
+                    <country>USA</country>
+                </cntaddr>
+                <cntvoice>(503) 808-4349</cntvoice>
+                <cntfax>(503) 808-4365</cntfax>
+                <cntemail>Daniel.R.Proudfit@usace.army.mil</cntemail>
+            </cntinfo>
+        </distrib>
+        <distliab>Distributor assumes no liability for misuse of data.Users must assume responsibility to determine the usability of these data.</distliab>
+        <stdorder>
+            <digform>
+                <digtinfo>
+                    <formname>Vector Digital Data Set (Point)</formname>
+                </digtinfo>
+                <digtopt>
+                    <onlinopt>
+                        <computer>
+                            <networka>
+                                <networkr>http://www.nwp.usace.army.mil/Missions/Navigation/Surveys.aspx</networkr>
+                            </networka>
+                        </computer>
+                    </onlinopt>
+                </digtopt>
+            </digform>
+            <fees>None. No fees are applicable for obtaining the data set.</fees>
+        </stdorder>
+    </distinfo>
+    <metainfo>
+        <metd>20220916</metd>
+        <metc>
+            <cntinfo>
+                <cntperp>
+                    <cntper>Dan Proudfit</cntper>
+                    <cntorg>CENWP-OD-NH</cntorg>
+                </cntperp>
+                <cntpos>Chief, Hydographic Survey</cntpos>
+                <cntaddr>
+                    <addrtype>Mailing and Physical</addrtype>
+                    <address>333 S.W. First Avenue</address>
+                    <city>Portland</city>
+                    <state>Oregon</state>
+                    <postal>97204</postal>
+                    <country>USA</country>
+                </cntaddr>
+                <cntvoice>(503) 808-4349</cntvoice>
+                <cntfax>(503) 808-4365</cntfax>
+                <cntemail>Daniel.R.Proudfit@usace.army.mil</cntemail>
+            </cntinfo>
+        </metc>
+        <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+        <metstdv>FGDC-STD-001-1998</metstdv>
+    </metainfo>
+</metadata>
