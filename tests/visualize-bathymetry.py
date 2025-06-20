@@ -17,27 +17,30 @@ z = data[:, 2] # Extract third column (z-values) into 1D array
 # Define grid 
 xi = np.linspace(x.min(), x.max(), 200) # Linear interpolation between minimum and maximum x values to set grid x points.
 yi = np.linspace(y.min(), y.max(), 200) # Linear interpolation between minimum and maximum y values to set grid y points.
+z = z * -1 # Invert z 
 xi, yi = np.meshgrid(xi, yi) # Merge to 2D array
 
 # Interpolate z values onto grid
 zi = griddata((x, y), z, (xi, yi), method='linear') # Estimates z value at each grid point (xi, yi) by interpolating from the known (x, y, z) data.
+zi = gaussian_filter(zi, sigma=2) # Apply gausian filter
+zi_masked = ma.masked_invalid(zi)
 
 # 2D Plot
-plt.figure(figsize=(10, 8)) # Generate figure
-plt.imshow(zi_masked, extent=(x.min(), x.max(), y.min(), y.max()), origin='lower', cmap='viridis') # Plot height map with viridis colormap encoding z values
-plt.colorbar(label='Depth (Z)') # Configure colormap indicator bar
-plt.title('Bathymetry Height Map') # Add title
-plt.xlabel('X') # Label x-axis
-plt.ylabel('Y') # Label y-axis
-plt.show() # Show in window.
+plt.figure(figsize=(10, 8))
+plt.imshow(zi_masked, extent=(x.min(), x.max(), y.min(), y.max()), origin='lower', cmap='viridis')
+plt.colorbar(label='Depth (Z)')
+plt.title('Bathymetry Height Map')
+plt.xlabel('X')
+plt.ylabel('Y')
+plt.show()
 
 # 3D Plot
-fig = plt.figure(figsize=(12, 9)) # Generate figure.
-ax = fig.add_subplot(111, projection='3d') # 3D projection
-surf = ax.plot_surface(xi, yi, zi_masked, cmap='viridis', edgecolor='none') # Plot height map with viridis colormap encoding z values
-fig.colorbar(surf, ax=ax, shrink=0.5, aspect=10, label='Depth (Z)') # Configure colormap indicator bar
-ax.set_title('Bathymetry 3D Surface') # Add title
-ax.set_xlabel('X') # Label x-axis
-ax.set_ylabel('Y') # Label y-axis
-ax.set_zlabel('Depth (Z)') # Label z-axis
-plt.show() # Show in window.
+fig = plt.figure(figsize=(12, 9))
+ax = fig.add_subplot(111, projection='3d')
+surf = ax.plot_surface(xi, yi, zi_masked, cmap='viridis', edgecolor='none')
+fig.colorbar(surf, ax=ax, shrink=0.5, aspect=10, label='Depth (Z)')
+ax.set_title('Bathymetry 3D Surface')
+ax.set_xlabel('X')
+ax.set_ylabel('Y')
+ax.set_zlabel('Depth (Z)')
+plt.show()
