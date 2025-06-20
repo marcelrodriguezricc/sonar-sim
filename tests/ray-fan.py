@@ -56,9 +56,9 @@ for theta in angles: # For each ray...
     endpoint = source + direction * ray_length # Calculate endpoint based on direction and ray length from source
 
     # Generate ray
-    t = np.linspace(0, 1, num_points) #  Generate array of specified number of points between 0 and 1.
-    trajectory = np.outer(1 - t, source) + np.outer(t, endpoint) # Calculate trajectory points as percentage of source to target.
-    ax.plot(trajectory[:, 0], trajectory[:, 1], trajectory[:, 2], color='y', alpha=0.7) # Plot ray trajectory.
+    t = np.linspace(0, 1, num_points) #  Generate array of specified number of points
+    trajectory = np.outer(1 - t, source) + np.outer(t, endpoint) # Calculate trajectory points as percentage of source to target
+    ax.plot(trajectory[:, 0], trajectory[:, 1], trajectory[:, 2], color='y', alpha=0.7) # Plot ray trajectory
 
 # Plot
 ax.scatter(*source, color='black', s=50, label='Source') # Plot the source
