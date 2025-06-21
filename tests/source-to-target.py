@@ -20,6 +20,7 @@ ax.scatter(*target, color='r', s=50, label='Target') # Target point
 ax.set_xlabel('X') # Label x-axis
 ax.set_ylabel('Y') # Label y-axis
 ax.set_zlabel('Z') # Label z-axis
-ax.set_title('Basic 3D Raytracing: Source to Target') # Add title to graphic
+ax.set_title('Trajectory from Source to Target') # Add title to graphic
 ax.legend() # Show legend
+plt.savefig('/Users/marcel/Desktop/sonar-sim/docs/figures/source-to-target.png', dpi=300)
 plt.show() # Show plot in window

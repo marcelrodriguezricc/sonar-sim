@@ -146,4 +146,7 @@ ax.set_xlim(0, 1)
 ax.set_ylim(0, 1)
 ax.set_zlim(-1, 0)
 
+ax.view_init(elev=45, azim=135)
+
+plt.savefig('/Users/marcel/Desktop/sonar-sim/docs/figures/ray-intersect.png', dpi=300)
 plt.show() # Show in window.
