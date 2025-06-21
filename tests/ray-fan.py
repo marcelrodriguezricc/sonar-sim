@@ -73,4 +73,5 @@ ax.set_xlim(-5, 5)
 ax.set_ylim(-5, 5)
 ax.set_zlim(-5, 2)
 
+plt.savefig('/Users/marcel/Desktop/sonar-sim/docs/figures/ray-fan.png', dpi=300)
 plt.show() # Show in window.
