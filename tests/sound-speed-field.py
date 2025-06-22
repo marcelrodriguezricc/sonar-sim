@@ -18,7 +18,7 @@ def platform_position(p):
     x_new = fetch * p[0] # Calculate platform position on x
     y_new = fetch * p[1] # Calculate platform position on y
     z_new = fetch * p[2] # Calculate platform position on z
-    return np.array([x_new, y_new, z_new])
+    return np.array([x_new, y_new, z_new]) # Return array with XYZ coordinates
 
 # Basic temperature profile
 def temperature_profile(z):
@@ -108,4 +108,5 @@ ax.set_xlabel('X (m)') # Label x-axis
 ax.set_ylabel('Y (m)') # Label y-axis
 ax.set_zlabel('Depth (m)') # Label depth
 ax.set_title('Sound Speed Field') # Add title
+plt.savefig('/Users/marcel/Desktop/sonar-sim/docs/figures/sound_speed_field.png', dpi=300)
 plt.show() # Show plot in window
