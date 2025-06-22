@@ -73,40 +73,39 @@ platform_x = platform_position(platform) # Platform x position
 platform_z = 0 # Platform at surface
 
 # Downsample your data for voxels
-step = 40
-Cv = C[::step, ::step, ::step]
+step = 40 # Downsampling interval, every 40th value is selected
+Cv = C[::step, ::step, ::step] # Downsample each axis of the field
 
 # Compute voxel edges for each axis
-xv = np.linspace(x[0], x[-1], Cv.shape[0]+1)
-yv = np.linspace(y[0], y[-1], Cv.shape[1]+1)
-zv = np.linspace(z[0], z[-1], Cv.shape[2]+1)
+xv = np.linspace(x[0], x[-1], Cv.shape[0]+1) # X-axis
+yv = np.linspace(y[0], y[-1], Cv.shape[1]+1) # Y-axis
+zv = np.linspace(z[0], z[-1], Cv.shape[2]+1) # Z-axis
 
 # Use np.meshgrid to create the grid of voxel edges
-Xv, Yv, Zv = np.meshgrid(xv, yv, zv, indexing='ij')
+Xv, Yv, Zv = np.meshgrid(xv, yv, zv, indexing='ij') # Generate grid based on xv, yv, and zv
 
 # Surface and seafloor
 N = Cv.shape[0]  # Number of x points after downsampling
 M = Cv.shape[1]  # Number of y points after downsampling
-x_surf = np.linspace(0, fetch, N)
-y_surf = np.linspace(0, fetch, M)
-X_surf, Y_surf = np.meshgrid(x_surf, y_surf, indexing='ij')
-Z_surf = np.zeros_like(X_surf)
-seafloor = depth + 0.02 * (x_surf - x_surf[0])  # shape (N,)
-Z_floor = np.tile(seafloor[:, np.newaxis], (1, M))
+x_surf = np.linspace(0, fetch, N) # Sea surface x 
+y_surf = np.linspace(0, fetch, M) # Sea surface y
+X_surf, Y_surf = np.meshgrid(x_surf, y_surf, indexing='ij') # Generate grid for sea surface
+Z_surf = np.zeros_like(X_surf) # Flat sea surface at 0 depth
+seafloor = np.zeros_like(X_surf) + depth # Flat sea floor at assigned depth
 
-# Create a filled mask
-filled = np.ones_like(Cv, dtype=bool)
+# Create a filled boolean mask
+filled = np.ones_like(Cv, dtype=bool) # Generate an array of ones used to assign on parameter to all voxels
 
 # Plot voxels with physical coordinates
-fig = plt.figure(figsize=(10, 8))
-ax = fig.add_subplot(111, projection='3d')
-colors = plt.cm.viridis((Cv - Cv.min()) / (Cv.max() - Cv.min()))
-ax.voxels(Xv, Yv, Zv, filled, facecolors=colors, edgecolor=None, alpha=0.5, zorder=1)
-ax.plot_surface(X_surf, Y_surf, Z_surf, color='deepskyblue', alpha=0.5, linewidth=0, zorder=0, label='Sea Surface')
-ax.plot_surface(X_surf, Y_surf, Z_floor, color='saddlebrown', alpha=0.5, linewidth=0, zorder=0, label='Seafloor')
-ax.invert_zaxis()
-ax.set_xlabel('X (m)')
-ax.set_ylabel('Y (m)')
-ax.set_zlabel('Depth (m)')
-ax.set_title('Sound Speed Field')
-plt.show()
+fig = plt.figure(figsize=(10, 8)) # Generate a figure object
+ax = fig.add_subplot(111, projection='3d') # Generate a 3d plot
+colors = plt.cm.viridis((Cv - Cv.min()) / (Cv.max() - Cv.min())) # Color map for viridis gradient normalized over extent of Cv
+ax.voxels(Xv, Yv, Zv, filled, facecolors=colors, edgecolor=None, alpha=0.5, zorder=1) # Generate voxels
+ax.plot_surface(X_surf, Y_surf, Z_surf, color='deepskyblue', alpha=0.5, linewidth=0, zorder=0, label='Sea Surface') # Plot sea surface
+ax.plot_surface(X_surf, Y_surf, seafloor, color='saddlebrown', alpha=0.5, linewidth=0, zorder=0, label='Seafloor') # Plot sea floor
+ax.invert_zaxis()# Invert so positive depth is down
+ax.set_xlabel('X (m)') # Label x-axis
+ax.set_ylabel('Y (m)') # Label y-axis
+ax.set_zlabel('Depth (m)') # Label depth
+ax.set_title('Sound Speed Field') # Add title
+plt.show() # Show plot in window
