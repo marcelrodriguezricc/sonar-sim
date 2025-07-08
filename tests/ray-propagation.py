@@ -1,1 +1,0 @@
-# Francois and Garrison (1982)
