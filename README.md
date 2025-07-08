@@ -39,7 +39,7 @@ A Python based 3D side-scan sonar simulation for development of real-time data p
 
       - Gaussian beam technique to simulate sonar beam footprint, intensity variation across footprint, interactions with regions of complex bathymetry (high relief), and smoothing over of caustics for closer approximation of sonar behavior as opposed to classical raytracing.
 
-      - Apply attenuation as ray travels through each voxel based on sound speed profile.
+      - Apply attenuation as ray travels through each voxel using a 3D Differential Analyzer (Museth, 2013).
 
    - Apply boundary interactions.
 

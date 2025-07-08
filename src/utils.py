@@ -63,3 +63,47 @@ def sound_speed_field(grid):
     c += 0.1 * (y / y.max())  # Small linear gradient in y
     c += 0.05 * np.sin(2 * np.pi * x / x.max()) * np.sin(2 * np.pi * y / y.max())  # Small sinusoidal perturbation
     return c # Return sound speed values for each voxel in "grid"
+
+# 3D Digital Differential Analyzer
+# At each step, the algorithm checks which of the three axes the ray will cross next (which voxel boundary is closest along the ray's path), then increments the index along that axis by one.
+def dda(C, init_pos, ray_dir, max_steps):
+    shape = C.shape # Get shape of field
+    idx = np.array(init_pos, dtype=float) # Initialize ray index from starting position
+    values = [] # Create an empty array to return values of C for ray traversal
+    path = [] # Initialize an empty array for ray path positions
+
+    # Calculate step and tMax/tDelta for each axis
+    step = np.sign(ray_dir).astype(int) # Increment, decrement, or do nothing along each axis as the ray moves
+    tMax = np.zeros(3) # Initialize array that holds distance to next voxel boundary (variable)
+    tDelta = np.zeros(3) # Initialize array that will hold distance between subsequent voxel boundaries (constant)
+    grid_spacing = [1, 1, 1]  # Grid is uniform and each voxel is 1 unit in size
+
+    # For each axis...
+    for i in range(3):
+        if ray_dir[i] != 0: # If moving along axis...
+            if step[i] > 0: # And if stepping in positive direction...
+                next_voxel_boundary = np.floor(idx[i] + 1) # Calculate next voxel boundary.
+            else: # Else if stepping in negative direction...
+                next_voxel_boundary = np.ceil(idx[i] - 1) # Calculate next voxel boundary
+            tMax[i] = (next_voxel_boundary - idx[i]) / ray_dir[i]
+            # Distance ray must travel to reach boundary. 
+            tDelta[i] = grid_spacing[i] / abs(ray_dir[i])
+            # Distance ray must travel between subsequent boundaries.
+        else: # If the ray is not moving along axis...
+            # Set tMax and tDelta to infinity so ray will not step this along this axis
+            tMax[i] = np.inf
+            tDelta[i] = np.inf
+
+    # Loop up to max_steps limit to prevent infinite loops...
+    for _ in range(max_steps):
+        xi, yi, zi = idx.astype(int) # Break ray position index into x, y, and z index components.
+        if not (0 <= xi < shape[0] and 0 <= yi < shape[1] and 0 <= zi < shape[2]): # If index exceeds boundaries of grid...
+            break # Break loop
+        values.append(C[xi, yi, zi]) # Get value at index.
+        path.append([xi, yi, zi]) # Get index position of ray.
+        # Step to next voxel
+        axis = np.argmin(tMax) # Find axis along which next boundary will be crossed.
+        idx[axis] += step[axis] # Move ray along chosen axis.
+        tMax[axis] += tDelta[axis] # Update tMax for chosen axis.
+
+    return values, np.array(path)
