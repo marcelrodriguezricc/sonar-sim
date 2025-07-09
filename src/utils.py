@@ -64,46 +64,64 @@ def sound_speed_field(grid):
     c += 0.05 * np.sin(2 * np.pi * x / x.max()) * np.sin(2 * np.pi * y / y.max())  # Small sinusoidal perturbation
     return c # Return sound speed values for each voxel in "grid"
 
-# 3D Digital Differential Analyzer
-# At each step, the algorithm checks which of the three axes the ray will cross next (which voxel boundary is closest along the ray's path), then increments the index along that axis by one.
-def dda(C, init_pos, ray_dir, max_steps):
-    shape = C.shape # Get shape of field
-    idx = np.array(init_pos, dtype=float) # Initialize ray index from starting position
-    values = [] # Create an empty array to return values of C for ray traversal
-    path = [] # Initialize an empty array for ray path positions
+# Trilinear interpolation to get pressure value based on fractional distance of ray within voxel and value at each corner point of voxel
+def trilinear_interp(C, pos):
+    x, y, z = pos # Break position on 3D grid into constituent parts
+    x0, y0, z0 = np.floor([x, y, z]).astype(int) # Find lower corner of voxel.
+    x1, y1, z1 = x0 + 1, y0 + 1, z0 + 1 # Calculate upper corner of voxel.
 
-    # Calculate step and tMax/tDelta for each axis
-    step = np.sign(ray_dir).astype(int) # Increment, decrement, or do nothing along each axis as the ray moves
-    tMax = np.zeros(3) # Initialize array that holds distance to next voxel boundary (variable)
-    tDelta = np.zeros(3) # Initialize array that will hold distance between subsequent voxel boundaries (constant)
-    grid_spacing = [1, 1, 1]  # Grid is uniform and each voxel is 1 unit in size
+    # Prevent attempts to access elements outside valid range of the array when point is near edge
+    x0 = np.clip(x0, 0, C.shape[0] - 1)
+    x1 = np.clip(x1, 0, C.shape[0] - 1)
+    y0 = np.clip(y0, 0, C.shape[1] - 1)
+    y1 = np.clip(y1, 0, C.shape[1] - 1)
+    z0 = np.clip(z0, 0, C.shape[2] - 1)
+    z1 = np.clip(z1, 0, C.shape[2] - 1)
 
-    # For each axis...
-    for i in range(3):
-        if ray_dir[i] != 0: # If moving along axis...
-            if step[i] > 0: # And if stepping in positive direction...
-                next_voxel_boundary = np.floor(idx[i] + 1) # Calculate next voxel boundary.
-            else: # Else if stepping in negative direction...
-                next_voxel_boundary = np.ceil(idx[i] - 1) # Calculate next voxel boundary
-            tMax[i] = (next_voxel_boundary - idx[i]) / ray_dir[i]
-            # Distance ray must travel to reach boundary. 
-            tDelta[i] = grid_spacing[i] / abs(ray_dir[i])
-            # Distance ray must travel between subsequent boundaries.
-        else: # If the ray is not moving along axis...
-            # Set tMax and tDelta to infinity so ray will not step this along this axis
-            tMax[i] = np.inf
-            tDelta[i] = np.inf
+    # Fractional distance from ray position to voxel bottom corner
+    xd = x - x0 
+    yd = y - y0
+    zd = z - z0
 
-    # Loop up to max_steps limit to prevent infinite loops...
-    for _ in range(max_steps):
-        xi, yi, zi = idx.astype(int) # Break ray position index into x, y, and z index components.
-        if not (0 <= xi < shape[0] and 0 <= yi < shape[1] and 0 <= zi < shape[2]): # If index exceeds boundaries of grid...
+    # Get pressure value at each corner of voxel cube
+    c000 = C[x0, y0, z0]
+    c001 = C[x0, y0, z1] 
+    c010 = C[x0, y1, z0]
+    c011 = C[x0, y1, z1]
+    c100 = C[x1, y0, z0]
+    c101 = C[x1, y0, z1]
+    c110 = C[x1, y1, z0]
+    c111 = C[x1, y1, z1]
+
+    # Use weighted average to interpolate between pressure values at x-corners
+    c00 = c000 * (1 - xd) + c100 * xd # Multiple each pressure value by it's weight based on fractional distance within voxel and add weighted values.
+    c01 = c001 * (1 - xd) + c101 * xd
+    c10 = c010 * (1 - xd) + c110 * xd
+    c11 = c011 * (1 - xd) + c111 * xd
+
+    # Interpolate x-pairings along y-axis
+    c0 = c00 * (1 - yd) + c10 * yd
+    c1 = c01 * (1 - yd) + c11 * yd
+
+    # Interpolate xy-pairings along z-axis
+    c = c0 * (1 - zd) + c1 * zd
+
+    return c # Return interpolated sound speed value
+
+# Traverse grid, getting pressure value for each step 
+def traverse_grid(c, init_pos, ray_dir, step_size, max_steps):
+    shape = c.shape # Get shape of sound speed field (grid)
+    num_steps = int(max_steps / step_size) # Calculate maximum number of steps based on size
+    idx = np.array(init_pos, dtype=float) # Convert initial position (x, y, z) list into array of floats
+    values = [] # Initialize array where pressure values will be stored
+    path = [] # Initialize array where ray path points will be stored for graphing
+
+    # Loop until ray is at maximum number of steps (to avoid infinite loops)
+    for _ in range(num_steps):
+        xi, yi, zi = idx # Break idx array into constituent x, y, and z parts
+        if not (0 <= xi < shape[0] and 0 <= yi < shape[1] and 0 <= zi < shape[2]): # If ray steps out of bounds...
             break # Break loop
-        values.append(C[xi, yi, zi]) # Get value at index.
-        path.append([xi, yi, zi]) # Get index position of ray.
-        # Step to next voxel
-        axis = np.argmin(tMax) # Find axis along which next boundary will be crossed.
-        idx[axis] += step[axis] # Move ray along chosen axis.
-        tMax[axis] += tDelta[axis] # Update tMax for chosen axis.
-
+        values.append(trilinear_interp(c, idx)) # Apply trilinear interpolation to get value based on fractional distance of ray within voxel
+        path.append(idx.copy()) # Append current ray position to path array
+        idx += ray_dir * step_size  # Move by a fraction of a voxel
     return values, np.array(path)
