@@ -1,6 +1,6 @@
 # Sonar Sim
 
-My drawing board for experimenting with concepts in underwater remote sensors.
+My drawing board for experimenting with concepts in building physics based underwater sound propagation and remote sensor models.
 
 ## Setup
 
